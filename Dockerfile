@@ -1,6 +1,6 @@
 FROM node:14-alpine
 WORKDIR /app
-ENV PORT=5500
 COPY . .
 RUN npm install
+EXPOSE $PORT
 CMD [ "npm", "start" ]
