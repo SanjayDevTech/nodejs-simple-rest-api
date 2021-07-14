@@ -2,17 +2,8 @@ version: '3.9'
 services:
     database:
         image: 'mongo'
-        volumes:
-            - db-data:/data/db
-            - mongo-config:/data/configdb
 
     backend:
         build: .
         ports:
-            - '${PORT}:5500'
-        environment:
-            - DB
-
-volumes:
-    db-data:
-    mongo-config:
+            - '5500:5500'
