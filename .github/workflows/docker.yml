@@ -1,0 +1,20 @@
+name: push docker image
+on:
+  push:
+    branches: [ main ]
+    
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Build image
+        run: docker build -t sanjaydevtech/nodejs-simple-rest-api .
+        
+      - name: Log into registry
+        run: echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u sanjaydevtech --password-stdin
+        
+      - name: Push image
+        run: docker push sanjaydevtech/nodejs-simple-rest-api
