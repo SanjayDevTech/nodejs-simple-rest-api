@@ -5,14 +5,11 @@ let conn, User, Post;
 module.exports = async function connectionFactory() {
     if (conn) return { conn, User, Post };
 
-    console.log(
-        `mongodb+srv://${process.env.URI}/${process.env.DB}?retryWrites=true&w=majority`,
-    );
-
     conn = await mongoose.connect(
         `mongodb+srv://${process.env.URI}/${process.env.DB}?retryWrites=true&w=majority`,
         {
             useUnifiedTopology: true,
+            useNewUrlParser: true,
         },
     );
 
