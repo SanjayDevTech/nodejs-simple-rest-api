@@ -19,7 +19,7 @@ jobs:
       - name: Push image
         run: docker push sanjaydevtech/nodejs-simple-rest-api
         
-      - name: Heroku Docker Container Deplo
+      - name: Heroku Docker Container Deploy
         uses: lucassarcanjo/heroku-deploy@2.1.17
         with:
           email: ${{ secrets.HEROKU_EMAIL }}
