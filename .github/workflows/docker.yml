@@ -19,10 +19,19 @@ jobs:
             - name: Push image
               run: docker push sanjaydevtech/nodejs-simple-rest-api
 
-            - name: Build and push Docker to Heroku
+            - name: Build and push Docker to Heroku App1
               uses: akhileshns/heroku-deploy@v3.12.12
               with:
-                  heroku_app_name: ${{ secrets.HEROKU_APP }}
+                  heroku_app_name: ${{ secrets.HEROKU_APP1 }}
+                  appdir: '.'
+                  heroku_api_key: ${{ secrets.HEROKU_KEY }}
+                  heroku_email: ${{ secrets.HEROKU_EMAIL }}
+                  usedocker: true
+
+            - name: Build and push Docker to Heroku App2
+              uses: akhileshns/heroku-deploy@v3.12.12
+              with:
+                  heroku_app_name: ${{ secrets.HEROKU_APP2 }}
                   appdir: '.'
                   heroku_api_key: ${{ secrets.HEROKU_KEY }}
                   heroku_email: ${{ secrets.HEROKU_EMAIL }}
