@@ -1,13 +1,13 @@
-function $200(response, status, payload, errorMessage = '') {
+function $200(response, status, data, errorMessage = '') {
     return response.status(200).json({
         status,
-        payload,
+        value: data,
         errorMessage,
     });
 }
 
-function $200True(response, payload) {
-    return $200(response, true, payload);
+function $200True(response, data) {
+    return $200(response, true, data);
 }
 
 function $200False(response, errorMessage) {
