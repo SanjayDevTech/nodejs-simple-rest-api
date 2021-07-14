@@ -21,10 +21,7 @@ router.get('/', (req, res) => {
             created: 1,
             updated: 1,
         });
-        return $200True(res, {
-            posts,
-            by: email,
-        });
+        return $200True(res, posts);
     });
 });
 
@@ -41,9 +38,7 @@ router.get('/:postId', (req, res) => {
             { _id: new mongoose.Types.ObjectId(postId) },
             { _id: 1, email: 1, title: 1, content: 1, created: 1, updated: 1 },
         );
-        return $200True(res, {
-            post,
-        });
+        return $200True(res, post);
     });
 });
 
@@ -73,7 +68,7 @@ router.delete('/:postId', (req, res) => {
         if (!isPwdMatches) return $200False(res, POST.POST_FAILED);
         await Post.findByIdAndDelete(new mongoose.Types.ObjectId(postId));
 
-        return $200True(res, {});
+        return $200True(res, true);
     });
 });
 
@@ -122,9 +117,7 @@ router.post('/:postId', (req, res) => {
             updated: Date.now(),
         });
 
-        return $200True(res, {
-            postId,
-        });
+        return $200True(res, postId);
     });
 });
 
@@ -168,9 +161,7 @@ router.put('/', (req, res) => {
 
         await post.save();
 
-        return $200True(res, {
-            postId: post._id,
-        });
+        return $200True(res, post._id);
     });
 });
 

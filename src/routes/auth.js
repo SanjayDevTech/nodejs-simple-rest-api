@@ -14,9 +14,7 @@ router.get('/', (req, res) => {
     catchError(res, async () => {
         const { User } = await connectionFactory();
         const users = await User.find({}, { _id: 0, email: 1, name: 1 });
-        return $200True(res, {
-            users,
-        });
+        return $200True(res, users);
     });
 });
 
@@ -32,9 +30,7 @@ router.get('/:emailId', (req, res) => {
 
         const isExists = await User.exists({ email });
 
-        return $200True(res, {
-            isExists,
-        });
+        return $200True(res, isExists);
     });
 });
 
@@ -66,9 +62,7 @@ router.post('/register', (req, res) => {
         });
 
         await user.save();
-        return $200True(res, {
-            email,
-        });
+        return $200True(res, email);
     });
 });
 
