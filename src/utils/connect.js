@@ -8,7 +8,7 @@ module.exports = async function connectionFactory() {
     console.log('First time');
 
     conn = await mongoose.connect(
-        `mongodb://database:27017/${process.env.DB}`,
+        `mongodb+srv://${process.env.URI}/${process.env.DB}?retryWrites=true&w=majority`,
         {
             useUnifiedTopology: true,
         },
