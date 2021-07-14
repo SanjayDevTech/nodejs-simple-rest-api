@@ -25,4 +25,4 @@ jobs:
           email: ${{ secrets.HEROKU_EMAIL }}
           api_key: ${{ secrets.HEROKU_KEY }}
           app_name: ${{ secrets.HEROKU_APP }}
-          dockerfile_path: Dockerfile
+          dockerfile_path: .
