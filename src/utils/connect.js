@@ -5,7 +5,9 @@ let conn, User, Post;
 module.exports = async function connectionFactory() {
     if (conn) return { conn, User, Post };
 
-    console.log('First time');
+    console.log(
+        `mongodb+srv://${process.env.URI}/${process.env.DB}?retryWrites=true&w=majority`,
+    );
 
     conn = await mongoose.connect(
         `mongodb+srv://${process.env.URI}/${process.env.DB}?retryWrites=true&w=majority`,
