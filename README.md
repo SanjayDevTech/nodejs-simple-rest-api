@@ -42,7 +42,7 @@ data class Post(
 data class PostRequest(
     val content: String,
     val title: String,
-    val email: string,
+    val email: String,
     val password: String
 )
 ```
