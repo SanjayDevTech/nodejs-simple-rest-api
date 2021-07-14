@@ -7,5 +7,3 @@ services:
         build: .
         ports:
             - '${PORT}:5500'
-        environment:
-            - DB
