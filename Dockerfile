@@ -1,7 +1,6 @@
 FROM node:14-alpine
 WORKDIR /app
-ENV PORT 5500
-EXPOSE 5500
+ENV PORT=5500
 COPY . .
 RUN npm install
 CMD [ "npm", "start" ]
